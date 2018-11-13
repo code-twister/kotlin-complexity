@@ -18,7 +18,6 @@
   <depends>org.jetbrains.kotlin</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <annotator language="kotlin" implementationClass="com.codetwisters.intellij.kotlin.complexity.ComplexityAnnotator"/>
   </extensions>
 
 </idea-plugin>
