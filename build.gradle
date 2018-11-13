@@ -1,0 +1,42 @@
+buildscript {
+    ext.kotlin_version = '1.2.0'
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url 'http://dl.bintray.com/jetbrains/intellij-plugin-service'
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.3.12"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.intellij'
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    version '2018.2.6'
+    pluginName 'Kotlin Complexity'
+    plugins 'kotlin'
+    updateSinceUntilBuild false
+}
+
+// for some reason this fails if we don't provide some Java to compile
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/kotlin'
+        }
+    }
+}
+
+group 'com.codetwisters.intellij.kotlin.complexity'
+version '1.0-SNAPSHOT'

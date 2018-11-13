@@ -1,0 +1,24 @@
+<idea-plugin>
+  <id>com.codetwister.intellij.kotlin.complexity</id>
+  <name>Kotlin Complexity</name>
+  <vendor email="mihaly.f.nagy@gmail.com" url="http://github.com/code-twister">Mihaly Nagy</vendor>
+
+  <description><![CDATA[
+      Checks Kotlin methods for high complexity and annotates them with an error if the exceed a certain threshold
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Just the basic annotator of method complexity.
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends>org.jetbrains.kotlin</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <annotator language="kotlin" implementationClass="com.codetwisters.intellij.kotlin.complexity.ComplexityAnnotator"/>
+  </extensions>
+
+</idea-plugin>
